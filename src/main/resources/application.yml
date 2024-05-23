@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: w2m-starships
+  datasource:
+    url: jdbc:postgresql://localhost:5432/starships_db
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+    jpa:
+      database: POSTGRESQL
+      show-sql: true
+      properties:
+        hibernate:
+          default_schema: public
+      hibernate:
+        ddl-auto: validate
+  rabbitmq:
+    username: user
+    password: bitnami
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui
+    csrf:
+      enabled: true
+  api-docs:
+    enabled: true
+server:
+  port: 8080
+  error:
+    include-message: always
+
+
+
+
