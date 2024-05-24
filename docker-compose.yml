@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres:latest
+    container_name: w2m-postgres
+    environment:
+      POSTGRES_DB: starships_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - w2m-network
+  redis:
+    image: redis:latest
+    container_name: w2m-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - w2m-network
+
+  rabbitmq:
+    image: bitnami/rabbitmq:latest
+    container_name: "w2m-rabbitmq"
+    environment:
+      RABBITMQ_MANAGEMENT_ALLOW_WEB_ACCESS: true
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - w2m-network
+    restart: unless-stopped
+
+networks:
+  w2m-network:
+    driver: bridge
+
+
