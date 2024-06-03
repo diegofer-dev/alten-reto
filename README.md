@@ -105,7 +105,7 @@ Once the application is running, Swagger Documentation can be found at [http://l
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the  GNU GPLv3 License. See the `LICENSE` file for details.
 
 ## Contact
 
